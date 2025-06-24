@@ -1,3 +1,11 @@
+# -!- Makefile -!-
+# generic Makefile template to start new C++ projects
+# place your hpp and cpp files into the src directory
+# object files will be placed within build directory
+# application will be in the root folder
+# to compile the example application just write into your terminal:
+# 
+#    make prog
 CC        := g++
 SRC_DIR   := src
 BUILD_DIR := build
