@@ -6,9 +6,13 @@ HDRS      := $(wildcard $(SRC_DIR)/*.hpp)
 OBJS      := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
 CFLAGS    := -O3 -Wall
 LFLAGS    :=  # -lfmt -lncurses
+FORMATTER := astyle --indent=spaces=4 --mode=c 
+LINTER    := cppcheck
 
 TARGET=prog
+
 .PHONY=clean
+
 default:
 	@echo "targets:"
 	@echo "  $(TARGET)      - the application"
@@ -27,10 +31,10 @@ $(BUILD_DIR):
 	mkdir -p $@	
 
 lint:
-	cppcheck $(SRCS) $(HDRS)
+	$(LINTER) $(SRCS) $(HDRS)
 
 format:
-	astyle --indent=spaces=4 --mode=c $(SRCS) $(HDRS)
+	$(FORMATTER) $(SRCS) $(HDRS)
 			
 clean:
 	rm $(TARGET) $(OBJS)
