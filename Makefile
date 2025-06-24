@@ -6,13 +6,14 @@
 # to compile the example application just write into your terminal:
 # 
 #    make prog
+VERSION   := 0.0.1
 CC        := g++
 SRC_DIR   := src
 BUILD_DIR := build
 SRCS      := $(wildcard $(SRC_DIR)/*.cpp)
 HDRS      := $(wildcard $(SRC_DIR)/*.hpp)
 OBJS      := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
-CFLAGS    := -O3 -Wall -std=c++17
+CFLAGS    := -I. -O3 -Wall -std=c++17
 LFLAGS    :=  # -lfmt -lncurses
 FORMATTER := astyle --indent=spaces=4 --mode=c 
 LINTER    := cpplint
@@ -46,3 +47,11 @@ format:
 			
 clean:
 	rm $(TARGET) $(OBJS)
+
+version:
+	@echo $(VERSION)
+	
+## example for header only library
+include:
+	[[ -d src/include ]] || mkdir -p src/include
+	wget https://raw.githubusercontent.com/badaix/popl/refs/heads/master/include/popl.hpp -o src/include/popl.hpp
