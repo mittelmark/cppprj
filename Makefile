@@ -15,7 +15,7 @@ OBJS      := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
 CFLAGS    := -O3 -Wall -std=c++17
 LFLAGS    :=  # -lfmt -lncurses
 FORMATTER := astyle --indent=spaces=4 --mode=c 
-LINTER    := cppcheck
+LINTER    := cpplint
 
 TARGET=prog
 
