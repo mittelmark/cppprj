@@ -12,7 +12,7 @@ BUILD_DIR := build
 SRCS      := $(wildcard $(SRC_DIR)/*.cpp)
 HDRS      := $(wildcard $(SRC_DIR)/*.hpp)
 OBJS      := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
-CFLAGS    := -O3 -Wall
+CFLAGS    := -O3 -Wall -std=c++17
 LFLAGS    :=  # -lfmt -lncurses
 FORMATTER := astyle --indent=spaces=4 --mode=c 
 LINTER    := cppcheck
@@ -33,7 +33,7 @@ $(TARGET): $(OBJS)
 	strip $@
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_DIR):
 	mkdir -p $@	
