@@ -67,7 +67,7 @@ glob: include
 
 csv:  include
 	@[[ -f src/include/csv.hpp ]] || \
-	wget https://raw.githubusercontent.com/vincentlaucsb/csv-parser/refs/heads/master/single_include/csv.hpp -o src/include/csv.hpp	
+	wget https://raw.githubusercontent.com/vincentlaucsb/csv-parser/refs/heads/master/single_include/csv.hpp -O src/include/csv.hpp	
 ini:  include
 	@[[ -f src/include/SimpleIni.h ]] || \
 	wget https://raw.githubusercontent.com/brofield/simpleini/refs/heads/master/SimpleIni.h -O src/include/SimpleIni.h	
@@ -82,7 +82,7 @@ inja: include
 
 rang: include
 	@[[ -f src/include/rang.hpp ]] || \
-	wget https://github.com/agauniyal/rang/releases/download/v3.2/rang.hpp -o src/include/rang.hpp	
+	wget https://github.com/agauniyal/rang/releases/download/v3.2/rang.hpp -O src/include/rang.hpp	
 
 doctest: include
 	@[[ -f src/include/doctest.hpp ]] || \
@@ -105,6 +105,6 @@ include:
 
 other:	
 	## example for pipe interface
-	wget "https://raw.githubusercontent.com/ziotom78/gplotpp/refs/heads/master/gplot%2B%2B.h" -o src/include/gplot++.hpp
+	wget "https://raw.githubusercontent.com/ziotom78/gplotpp/refs/heads/master/gplot%2B%2B.h" -O src/include/gplot++.hpp
 	## maddy markdown converter
 	## https://github.com/progsource/maddy
