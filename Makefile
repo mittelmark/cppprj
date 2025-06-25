@@ -55,7 +55,8 @@ version:
 
 popl: src/include/popl.hpp
 json: src/include/json.hpp
-
+glob: src/include/glob.hpp
+csv:  src/include/csv.hpp
 include:
 	[[ -d src/include ]] || mkdir -p src/include
 
@@ -63,10 +64,13 @@ src/include/popl.hpp: include
 	wget https://raw.githubusercontent.com/badaix/popl/refs/heads/master/include/popl.hpp -o src/include/popl.hpp
 src/include/json.hpp: include
 	wget https://github.com/nlohmann/json/releases/download/v3.12.0/json.hpp -o src/include/json.hpp
+src/include/glob.hpp: include
+	wget https://github.com/p-ranav/glob/blob/master/single_include/glob/glob.hpp -o src/include/glob.hpp
+src/include/csv.hpp: include
+	wget https://raw.githubusercontent.com/vincentlaucsb/csv-parser/refs/heads/master/single_include/csv.hpp -o src/include/csv.hpp
+
 other:	
 	wget https://raw.githubusercontent.com/brofield/simpleini/refs/heads/master/SimpleIni.h -o src/include/SimpleIni.h
-	wget https://raw.githubusercontent.com/vincentlaucsb/csv-parser/refs/heads/master/single_include/csv.hpp -o src/include/csv.hpp
-	wget https://github.com/p-ranav/glob/blob/master/single_include/glob/glob.hpp -o src/include/glob.hpp
 	wget https://raw.githubusercontent.com/tcbrindle/NanoRange/master/single_include/nanorange.hpp -o src/include/nanorange.hpp
 	wget https://raw.githubusercontent.com/pantor/inja/refs/heads/main/single_include/inja/inja.hpp -o src/include/inja.hpp
 	wget https://github.com/agauniyal/rang/releases/download/v3.2/rang.hpp -o src/include/rang.hpp
