@@ -51,7 +51,28 @@ clean:
 version:
 	@echo $(VERSION)
 	
-## example for header only library
+## example for header only libraries
+
+popl: src/include/popl.hpp
+json: src/include/json.hpp
+
 include:
 	[[ -d src/include ]] || mkdir -p src/include
+
+src/include/popl.hpp: include
 	wget https://raw.githubusercontent.com/badaix/popl/refs/heads/master/include/popl.hpp -o src/include/popl.hpp
+src/include/json.hpp: include
+	wget https://github.com/nlohmann/json/releases/download/v3.12.0/json.hpp -o src/include/json.hpp
+other:	
+	wget https://raw.githubusercontent.com/brofield/simpleini/refs/heads/master/SimpleIni.h -o src/include/SimpleIni.h
+	wget https://raw.githubusercontent.com/vincentlaucsb/csv-parser/refs/heads/master/single_include/csv.hpp -o src/include/csv.hpp
+	wget https://github.com/p-ranav/glob/blob/master/single_include/glob/glob.hpp -o src/include/glob.hpp
+	wget https://raw.githubusercontent.com/tcbrindle/NanoRange/master/single_include/nanorange.hpp -o src/include/nanorange.hpp
+	wget https://raw.githubusercontent.com/pantor/inja/refs/heads/main/single_include/inja/inja.hpp -o src/include/inja.hpp
+	wget https://github.com/agauniyal/rang/releases/download/v3.2/rang.hpp -o src/include/rang.hpp
+	wget https://github.com/doctest/doctest/releases/download/v2.4.12/doctest.h -o src/include/doctest.hpp
+	wget https://raw.githubusercontent.com/ToruNiina/toml11/refs/heads/main/single_include/toml.hpp -o src/include/toml.hpp
+	wget https://raw.githubusercontent.com/kpeeters/tree.hh/master/src/tree.hh -o src/include/tree.hpp
+	wget "https://raw.githubusercontent.com/ziotom78/gplotpp/refs/heads/master/gplot%2B%2B.h" -o src/include/gplot++.hpp
+	wget https://raw.githubusercontent.com/fktn-k/fkYAML/refs/heads/develop/single_include/fkYAML/node.hpp -o src/include/node.hpp
+	# maddy
